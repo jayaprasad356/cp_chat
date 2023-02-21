@@ -135,6 +135,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
+
             android:fontFamily="@font/roboto_regular"
             android:gravity="center"
             android:padding="@dimen/padding10"
