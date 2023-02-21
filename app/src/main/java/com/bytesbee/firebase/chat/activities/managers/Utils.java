@@ -102,7 +102,6 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CenterInside;
 import com.bumptech.glide.load.resource.bitmap.GranularRoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
-import com.bytesbee.firebase.chat.activities.BuildConfig;
 import com.bytesbee.firebase.chat.activities.LoginActivity;
 import com.bytesbee.firebase.chat.activities.R;
 import com.bytesbee.firebase.chat.activities.constants.IDialogListener;
@@ -126,6 +125,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.installations.BuildConfig;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 

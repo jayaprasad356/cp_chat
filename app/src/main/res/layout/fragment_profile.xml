@@ -50,40 +50,6 @@
                         app:civ_border_color="@color/white"
                         app:civ_border_width="@dimen/padding1"
                         tools:ignore="UnusedAttribute" />
-
-                    <RelativeLayout
-                        android:id="@+id/layoutCameraGallery"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignEnd="@+id/imgAvatar"
-                        android:layout_alignBottom="@+id/imgAvatar"
-                        android:layout_marginEnd="@dimen/padding2"
-                        android:layout_marginBottom="@dimen/padding0"
-                        android:clickable="true"
-                        android:focusable="true">
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:layout_width="@dimen/padding30"
-                            android:layout_height="@dimen/padding30"
-                            android:layout_centerInParent="true"
-                            android:layout_marginEnd="@dimen/padding5"
-                            android:layout_marginBottom="@dimen/padding2"
-                            android:src="@color/white"
-                            android:visibility="visible"
-                            app:civ_border_color="@color/grey_300"
-                            app:civ_border_width="@dimen/padding1"
-                            app:civ_circle_background_color="@color/white" />
-
-                        <ImageView
-                            android:layout_width="@dimen/padding26"
-                            android:layout_height="@dimen/padding26"
-                            android:layout_centerInParent="true"
-                            android:contentDescription="@string/cDescription"
-                            android:padding="@dimen/padding3"
-                            android:src="@drawable/ic_attach_camera"
-                            app:tint="@color/colorAccent" />
-
-                    </RelativeLayout>
                 </RelativeLayout>
 
                 <View

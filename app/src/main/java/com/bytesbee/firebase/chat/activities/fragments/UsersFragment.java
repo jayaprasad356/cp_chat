@@ -252,18 +252,6 @@ public class UsersFragment extends BaseFragment {
         mUsers.add(user);
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NotNull Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_filter, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.itemFilter);
-
-        searchItem.setOnMenuItemClickListener(item -> {
-            Utils.filterPopup(getActivity(), this::readUsers);
-            return true;
-        });
-
-        super.onCreateOptionsMenu(menu, inflater);
-    }
 
 }

@@ -94,6 +94,7 @@
                     android:focusable="true"
                     android:fontFamily="@font/roboto_bold"
                     android:padding="@dimen/padding5"
+                    android:visibility="gone"
                     android:text="@string/strForgetPassword"
                     android:textColor="@color/colorBlue"
                     android:textSize="@dimen/font_twelve" />

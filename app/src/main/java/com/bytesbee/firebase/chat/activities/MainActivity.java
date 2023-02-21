@@ -37,6 +37,7 @@ import com.bytesbee.firebase.chat.activities.managers.Utils;
 import com.bytesbee.firebase.chat.activities.models.User;
 import com.bytesbee.firebase.chat.activities.views.CustomTypefaceSpan;
 import com.bytesbee.firebase.chat.activities.views.SingleClickListener;
+import com.github.appintro.BuildConfig;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -77,13 +78,13 @@ public class MainActivity extends BaseActivity {
         getSupportActionBar().setTitle("");
 
         final AdView adView = findViewById(R.id.adView);
-        if (BuildConfig.ADS_SHOWN) {
-            adView.setVisibility(View.VISIBLE);
-            final AdRequest adRequest = new AdRequest.Builder().build();
-            adView.loadAd(adRequest);
-        } else {
-            adView.setVisibility(View.GONE);
-        }
+//        if (BuildConfig.ADS_SHOWN) {
+//            adView.setVisibility(View.VISIBLE);
+//            final AdRequest adRequest = new AdRequest.Builder().build();
+//            adView.loadAd(adRequest);
+//        } else {
+//            adView.setVisibility(View.GONE);
+//        }
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference(REF_USERS).child(firebaseUser.getUid());
@@ -242,25 +243,8 @@ public class MainActivity extends BaseActivity {
         mi.setTitle(mNewTitle);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        applyFontToMenu(menu, this);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-        if (itemId == R.id.itemSettings) {
-            screens.openSettingsActivity();
-            return true;
-        } else if (itemId == R.id.itemLogout) {
-            Utils.logout(mActivity);
-            return true;
-        }
-        return true;
-    }
+
 
     @Override
     public void onBackPressed() {

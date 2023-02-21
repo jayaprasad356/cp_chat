@@ -185,7 +185,7 @@ import retrofit2.Response;
 public class MessageActivity extends BaseActivity implements View.OnClickListener, PickerManagerCallbacks {
 
     private CircleImageView mImageView;
-    private TextView mTxtUsername, txtTyping;
+    private TextView mTxtUsername;
     private LinearLayoutManager layoutManager;
     private RecyclerView mRecyclerView;
     private String currentId, userId, userName = "Sender";
@@ -247,7 +247,6 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
 
         initUI();
 
-        txtTyping.setText(EMPTY);
 
         try {
             setSupportActionBar(mToolbar);
@@ -347,9 +346,9 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
                     assert user != null;
                     mTxtUsername.setText(user.getUsername());
                     userName = user.getUsername();
-                    onlineStatus = Utils.showOnlineOffline(mActivity, user.getIsOnline());
+                   // onlineStatus = Utils.showOnlineOffline(mActivity, user.getIsOnline());
 
-                    txtTyping.setText(onlineStatus);
+                   // txtTyping.setText(onlineStatus);
 
                     Utils.setProfileImage(getApplicationContext(), user.getImageURL(), mImageView);
 
@@ -388,7 +387,7 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
 
     private void initUI() {
         mImageView = findViewById(R.id.imageView);
-        txtTyping = findViewById(R.id.txtTyping);
+       // txtTyping = findViewById(R.id.txtTyping);
         mTxtUsername = findViewById(R.id.txtUsername);
         mToolbar = findViewById(R.id.toolbar);
         mRecyclerView = findViewById(R.id.recyclerView);
@@ -973,43 +972,9 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
 
     }
 
-    MenuItem itemBlockUnblock;
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_groups, menu);
-        MenuItem itemViewUser = menu.findItem(R.id.itemGroupInfo);
-        itemBlockUnblock = menu.findItem(R.id.itemBlockUnblock);
-        MenuItem itemAdd = menu.findItem(R.id.itemAddGroup);
-        MenuItem itemEdit = menu.findItem(R.id.itemEditGroup);
-        MenuItem itemLeave = menu.findItem(R.id.itemLeaveGroup);
-        MenuItem itemDelete = menu.findItem(R.id.itemDeleteGroup);
-        itemAdd.setVisible(false);
-        itemEdit.setVisible(false);
-        itemLeave.setVisible(false);
-        itemDelete.setVisible(false);
-        itemViewUser.setTitle(R.string.strUserInfo);
-        checkUserIsBlock();
-        blockedByOpponent();
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        final int itemId = item.getItemId();
-        if (itemId == R.id.itemGroupInfo) {
-            screens.openViewProfileActivity(userId);
-        } else if (itemId == R.id.itemClearMyChats) {
-            Utils.showYesNoDialog(mActivity, R.string.strDelete, R.string.strDeleteOwnChats, this::deleteOwnChats);
-        } else if (itemId == R.id.itemBlockUnblock) {
-            if (itemBlockUnblock.getTitle().toString().equalsIgnoreCase(getString(R.string.strBlock))) {
-                blockUser();
-            } else {
-                unblockUser();
-            }
-        }
-        return true;
-    }
+
 
     private boolean isBlocked = false, isOppBlocked = false;
 
@@ -1021,11 +986,8 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for (DataSnapshot ds : snapshot.getChildren()) {
                             if (ds.exists()) {
-                                itemBlockUnblock.setTitle(R.string.strUnblock);
-                                isBlocked = true;
+
                             } else {
-                                isBlocked = false;
-                                itemBlockUnblock.setTitle(R.string.strBlock);
                             }
                         }
                     }
@@ -1067,7 +1029,6 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
                         hideProgress();
                         isBlocked = true;
                         screens.showToast(R.string.msgBlockSuccessfully);
-                        itemBlockUnblock.setTitle(R.string.strUnblock);
                     }).addOnFailureListener(e -> {
                         hideProgress();
                         screens.showToast(e.getMessage());
@@ -1093,7 +1054,6 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
                                             .addOnSuccessListener(aVoid -> {
                                                 isBlocked = false;
                                                 screens.showToast(R.string.msgUnblockSuccessfully);
-                                                itemBlockUnblock.setTitle(R.string.strBlock);
                                             })
                                             .addOnFailureListener(e -> screens.showToast(e.getMessage()));
                                 }
@@ -1178,9 +1138,8 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
                         Others user = dataSnapshot.getValue(Others.class);
                         assert user != null;
                         if (user.isTyping() && user.getTypingwith().equalsIgnoreCase(userId)) {
-                            txtTyping.setText(getString(R.string.strTyping));
                         } else {
-                            txtTyping.setText(onlineStatus);
+
                         }
                     }
                 } catch (Exception ignored) {

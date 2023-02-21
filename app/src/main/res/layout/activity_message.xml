@@ -68,18 +68,6 @@
                             android:textColor="@color/white"
                             android:textSize="@dimen/font_sixteen" />
 
-                        <TextView
-                            android:id="@+id/txtTyping"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/txtUsername"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/roboto_regular"
-                            android:lines="1"
-                            android:maxLines="1"
-                            android:text="@string/strTyping"
-                            android:textColor="@color/white"
-                            android:visibility="visible" />
                     </RelativeLayout>
                 </LinearLayout>
             </com.bytesbee.firebase.chat.activities.views.MaterialRippleLayout>

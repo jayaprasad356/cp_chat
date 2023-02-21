@@ -66,7 +66,7 @@ public class SplashActivity extends AppCompatActivity {
                         screens.showClearTopScreen(LoginActivity.class);
                     }
                 } else {
-                    screens.showClearTopScreen(OnBoardingActivity.class);
+                    screens.showClearTopScreen(LoginActivity.class);
                 }
             } catch (Exception e) {
                 Utils.getErrors(e);

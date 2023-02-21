@@ -122,7 +122,6 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        final View layoutCameraGallery = view.findViewById(R.id.layoutCameraGallery);
         imgAvatar = view.findViewById(R.id.imgAvatar);
         final TextView txtUsername = view.findViewById(R.id.txtUsername);
         final TextView txtEmail = view.findViewById(R.id.txtEmail);
@@ -148,7 +147,6 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
         if (Utils.isEmpty(userId)) {//
             viewUserId = firebaseUser.getUid();
             showHideViews(View.VISIBLE);
-            layoutCameraGallery.setOnClickListener(this);
             imgAvatar.setOnClickListener(this);
             layoutAbout.setOnClickListener(this);
             layoutGender.setOnClickListener(this);
@@ -209,13 +207,7 @@ public class ProfileFragment extends BaseFragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         final int id = v.getId();
-        if (id == R.id.layoutCameraGallery) {
-            if (Utils.isTypeEmail(strSignUpType)) {
-                openImageCropper();
-            } else {
-                screens.openFullImageViewActivity(v, strAvatarImg, strUsername);
-            }
-        } else if (id == R.id.imgAvatar) {
+        if (id == R.id.imgAvatar) {
             screens.openFullImageViewActivity(v, strAvatarImg, strUsername);
         } else if (id == R.id.layoutAbout) {
             popupForAbout();
