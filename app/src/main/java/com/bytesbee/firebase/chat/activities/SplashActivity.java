@@ -38,7 +38,6 @@ public class SplashActivity extends AppCompatActivity {
         Utils.setWindow(getWindow());
         setContentView(R.layout.activity_splash);
 
-        ((TextView) findViewById(R.id.txtName)).setText(String.format(getString(R.string.app_company_name), getString(R.string.app_company)));
 
         StartAnimations();
         load();

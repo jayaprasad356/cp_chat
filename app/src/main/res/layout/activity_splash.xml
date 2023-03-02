@@ -32,18 +32,5 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="middle"
-        android:fontFamily="@font/roboto_regular"
-        android:gravity="center"
-        android:padding="@dimen/padding10"
-        android:singleLine="true"
-        android:text="@string/app_company_name"
-        android:layout_alignParentBottom="true"
-        android:textColor="@color/white"
-        android:textSize="@dimen/font_fourteen" />
 
 </RelativeLayout>
